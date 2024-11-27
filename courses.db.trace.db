@@ -1,0 +1,28 @@
+2024-11-17 19:19:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Colonne "LENGTH" non trouvée
+Column "LENGTH" not found; SQL statement:
+    MERGE INTO Courses ( id, name, length, url)
+    values (?,?,?,?)
+ [42122-214]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:502)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:477)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:749)
+	at org.h2.command.Parser.parseColumn(Parser.java:1256)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1241)
+	at org.h2.command.Parser.parseMergeInto(Parser.java:1547)
+	at org.h2.command.Parser.parseMerge(Parser.java:1533)
+	at org.h2.command.Parser.parsePrepared(Parser.java:819)
+	at org.h2.command.Parser.parse(Parser.java:689)
+	at org.h2.command.Parser.parse(Parser.java:661)
+	at org.h2.command.Parser.prepareCommand(Parser.java:569)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:631)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:554)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1116)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:92)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:288)
+	at com.pluralsight.courseinfo.repository.CourseJdbcRepository.saveCourse(CourseJdbcRepository.java:54)
+	at com.pluralsight.courseinfi.cli.service.CourseStorageService.storePluralSightCourse(CourseStorageService.java:23)
+	at com.pluralsight.courseinfi.cli.CourseRetriever.retrieveCourses(CourseRetriever.java:43)
+	at com.pluralsight.courseinfi.cli.CourseRetriever.main(CourseRetriever.java:22)
